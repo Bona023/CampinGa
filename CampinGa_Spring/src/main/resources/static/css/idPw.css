@@ -1,0 +1,120 @@
+@charset "UTF-8";
+.findArticle{
+	width:1400px; 
+	height:600px; 
+	margin:50px auto;
+	text-align:center;
+}
+#idORpw{
+	width:500px;
+	height:600px;
+	margin: auto;
+}
+.findTitle{
+	margin:45px auto 10px auto;
+	text-align:center;
+	width:400px;
+	height:45px;
+	font-size:32px;
+	color:black;
+	font-weight:bold;
+}
+
+.findBtn{
+	width:400px;
+	height:45px;
+	margin: 15px auto;
+	background-color:#d46187;
+	border-radius: 10px;
+	text-align:center;
+	vertical-align:middle;
+	box-shadow:3px 3px 3px #cbcccc;
+}
+.findBtn span:hover{
+	cursor:pointer;
+	color:#fff329;
+}
+.findBtn span{
+	font-size:22px;
+	line-height:1.8;
+	color:#44caef;
+	font-weight:550;
+}
+.idpwText{
+	text-align:center;
+	font-size:18px;
+	line-height:1.5;
+	width:400px;
+	height:50px;
+	margin:5px auto;
+	font-weight:550;
+	color:#ed1c30;
+}
+.idpwTable{
+	width:450px;
+	height:300px;
+	margin:40px auto 10px auto;
+	text-align:center;
+}
+.idpwTable th,
+.idpwTable td{
+	vertical-align:middle;
+	height:80px;	
+}
+.idpwTable tr:first-child{
+	border-bottom:1px solid #acb1b1;
+}
+.idpwTable td{
+	background-color:#acbabd;
+	color:black;
+	font-size:16px;
+	line-height:1.5;
+}
+
+.idpwTable th{
+	font-size:20px;
+	color:#013948;
+	font-weight:550;
+	line-height:1.5;
+	background-color:#8acdbf;
+}
+.idpwTable input::placeholder{
+	color:#adbab6;
+}
+.idpwTable input:focus::placeholder{
+	color:transparent;
+}
+.idpwTable input[type="text"],
+.idpwTable input[type="password"]{
+	width:150px;
+	height:30px;
+	padding-left:10px;
+	outline-style: none;
+	border-style: none;
+	background-color:#d7eaed;	
+}
+.idpwTable input[type="text"]:focus,
+.idpwTable input[type="password"]{
+	outline-style: none;
+}
+.idpwTable input[type="submit"],
+.idpwTable input[type="button"]{
+	width:150px;
+	height:50px;
+	font-size:20px;
+	font-weight:600;
+	color:#027e56;
+	border:2px solid #8acdbf;
+	border-radius: 5px;
+	background-color:white;
+	box-shadow:3px 3px 3px #a5b6b1;
+}
+.idpwTable input[type="submit"]:hover,
+.idpwTable input[type="button"]:hover{
+	background-color:#8acdbf;
+	color:white;
+	cursor:pointer;
+}
+
+
+

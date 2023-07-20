@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.campinga.dao.ICampingDao">
+	<resultMap id="campMap" type="java.util.HashMap"></resultMap>
+	<resultMap id="campMap2" type="java.util.HashMap"></resultMap>
+	<resultMap id="campMap3" type="java.util.HashMap"></resultMap>
+	<resultMap id="campMap4" type="java.util.HashMap"></resultMap>
+
+	<select id="categoryAll" statementType="CALLABLE"
+		parameterType="java.util.HashMap">
+		{
+			CALL categoryAll(
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=campMap}
+			)
+		}
+	</select>
+
+	<select id="categoryList" statementType="CALLABLE"
+		parameterType="java.util.HashMap">
+		{
+			CALL categoryList(
+			#{category},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=campMap}
+			)
+		}
+	</select>
+
+	<!-- 신규, 추천 캠핑장 -->
+	<select id="getNewRecoCamping" statementType="CALLABLE"
+		parameterType="java.util.HashMap">
+		{
+			CALL getNewRecoCamping(
+			#{ref_cursor1, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=campMap },
+			#{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=campMap2}
+			)
+		}
+	</select>
+	
+	<!-- 메인 서치 -->
+	<select id="getSearchResult" statementType="CALLABLE"
+		parameterType="java.util.HashMap">
+		{
+			CALL getSearchResult(
+			#{address1}, #{address2}, #{cname},
+			#{ref_cursor ,mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=campMap }
+			)
+		}
+	</select>
+
+	<!-- 캠핑장 이름으로 검색 -->
+	<select id="campNameSerch" statementType="CALLABLE"
+		parameterType="java.util.HashMap">
+		{
+			CALL campNameSerch(
+			#{key},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=campMap}
+			)
+		}
+	</select>
+
+	<!-- 캠핑장 정보 조회 -->
+	<select id="campDetailByBseq" statementType="CALLABLE"
+		parameterType="java.util.HashMap">
+		{
+			CALL campDetailByBseq(
+			#{bseq},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=campMap}
+			)
+		}
+	</select>
+
+	<!-- 캠핑장 객실 리스트 -->
+	<select id="selectCampingList" statementType="CALLABLE"
+		parameterType="java.util.HashMap">
+		{
+			CALL selectCampingList(
+			#{bseq},
+			#{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=campMap2}
+			)
+		}
+	</select>
+
+	<!-- 캠핑장 즐겨찾기 조회 -->
+	<select id="getFav" statementType="CALLABLE"
+		parameterType="java.util.HashMap">
+		{
+			CALL getFav(
+			#{mid}, #{bseq},
+			#{myFav, mode=OUT, jdbcType=VARCHAR}
+			)
+		}
+	</select>
+
+	<!-- 캠핑장 qna, review count 조회 -->
+	<select id="getCount" statementType="CALLABLE"
+		parameterType="java.util.HashMap">
+		{
+			CALL getCount(
+			#{tableName}, #{bseq},
+			#{cnt, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+
+	<!-- 캠핑장 QnA 조회 -->
+	<select id="selectQnaByBseq" statementType="CALLABLE"
+		parameterType="java.util.HashMap">
+		{
+			CALL selectQnaByBseq(
+			#{bseq}, #{startNum1}, #{endNum1},
+			#{ref_cursor3, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=campMap3}
+			)
+		}
+	</select>
+
+	<!-- 캠핑장 Review 조회 -->
+	<select id="selectReviewByBseq" statementType="CALLABLE"
+		parameterType="java.util.HashMap">
+		{
+			CALL selectReviewByBseq(
+			#{bseq}, #{startNum2}, #{endNum2},
+			#{ref_cursor4, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=campMap4}
+			)
+		}
+	</select>
+
+	<!-- 객실 하나 조회 -->
+	<select id="selectCampOne" statementType="CALLABLE"
+		parameterType="java.util.HashMap">
+		{
+			CALL selectCampOne(
+			#{cseq},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=campMap},
+			#{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=campMap2}
+			)
+		}
+	</select>
+
+	<!-- 예약 추가 -->
+	<insert id="reserveInsert"
+		parameterType="com.campinga.dto.ReservationVO">
+		insert into reservation(reseq, cseq, mid, price, people, chk_in, chk_out)
+		values(reservation_seq.nextval, #{cseq}, #{mid}, #{price}, #{people}, #{chk_in}, #{chk_out})
+	</insert>
+	
+		<!-- 리뷰 등록, 수정, 삭제 -->
+	<insert id="insertReview" parameterType="java.util.HashMap">
+		insert into review (rseq, mid, bseq, content)
+		values(review_seq.nextval, #{mid}, #{bseq}, #{content})
+	</insert>
+
+	<update id="updateReview" parameterType="java.util.HashMap">
+		update review set content=#{content} where rseq=#{rseq}
+	</update>
+
+	<delete id="deleteReview">
+		delete from review where rseq=#{rseq}
+	</delete>
+	
+	<!-- 큐앤에이 등록, 수정, 삭제 -->
+	<insert id="insertQna" parameterType="java.util.HashMap">
+		insert into camp_qna (qseq, content, mid, bseq)
+		values(qna_seq.nextval, #{content}, #{mid}, #{bseq})
+	</insert>
+	
+	<update id="updateQna" parameterType="java.util.HashMap">
+		update camp_qna set content=#{content} where qseq=#{qseq}
+	</update>
+
+	<delete id="deleteQna">
+		delete from camp_qna where qseq=#{qseq}
+	</delete>
+
+	<!-- 즐겨찾기 추가, 삭제 -->
+	<insert id="insertFavorites" parameterType="java.util.HashMap">
+		insert into favorites (fseq, bseq, mid, fav_check)
+		values(favorites_seq.nextVal, #{bseq}, #{mid}, #{fav_check})
+	</insert>
+	
+	<delete id="deleteFavorites">
+		delete from favorites where bseq=#{bseq}
+	</delete>
+	
+	
+	<!-- 배너 이미지 조회 -->
+	<select id="getBannerList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getBannerList(
+				#{ref_cursor3, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=campMap3}
+			)
+		}
+	</select>
+	
+	
+
+</mapper>

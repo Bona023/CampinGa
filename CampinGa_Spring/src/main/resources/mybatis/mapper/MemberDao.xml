@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.campinga.dao.IMemberDao">
+
+	<resultMap id="memberMap" type="java.util.HashMap"></resultMap>
+	<resultMap id="memberMap2" type="java.util.HashMap"></resultMap>
+
+	<select id="getMemberCam" statementType="CALLABLE"
+		parameterType="java.util.HashMap">
+		{
+			CALL getMemberCam(
+			#{mid},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=memberMap}
+			)
+		}
+	</select>
+
+	<insert id="insertMemberCam" statementType="CALLABLE" parameterType="com.campinga.dto.MemberVO">
+		{
+			CALL insertMemberCam(
+			#{mid}, #{pwd}, #{name}, #{email}, #{mphone}
+			)
+		}
+	</insert>
+	
+	<select id="getMyPageCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getMyPageCount(
+				#{mid}, #{tableName}, 
+				#{cnt, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+	
+	
+	<select id="getReservateList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ 
+			CALL getReservateList( 
+				#{mid}, #{startNum1}, #{endNum1},
+				#{ref_cursor1, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=memberMap} 
+			) 
+		}
+	</select>
+	
+	
+	<select id="getFavoritesList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ 
+			CALL getFavoritesList( 
+				#{mid}, #{startNum2}, #{endNum2},
+				#{ref_cursor2, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=memberMap2} 
+			) 
+		}
+	</select>
+	
+	
+	
+	<update id="updateMember" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ 
+			CALL updateMember( 
+				#{MID}, #{NAME}, #{MPHONE},#{EMAIL}
+			) 
+		}
+	</update>
+	
+	<update id="dormantMember" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ 
+			CALL dormantMember( #{mid} ) 
+		}
+	</update>
+	
+	<delete id="deleteMember" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{
+		 CALL deleteMember( #{mid} )
+		}
+	</delete>
+	
+	<delete id="cancelReservate" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{
+		 CALL cancelReservate( #{reseq} )
+		}
+	</delete>
+	
+	<delete id="deleteMyFavorites" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{
+		 CALL deleteMyFavorites( #{fseq} )
+		}
+	</delete>
+	
+	<!-- id찾기 -->
+	<select id="returnMid" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL returnMid(
+				#{name}, #{phone},
+				#{id, mode=OUT, jdbcType=VARCHAR}
+			)
+		}
+	</select>
+
+	<select id="confirmMid" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL confirmMid(
+				#{id}, #{email},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=memberMap}
+			)
+		}
+	</select>
+	
+	<update id="updateNewPw">
+		update member set pwd=#{param2} where mid=#{param1}
+	</update>
+
+</mapper>

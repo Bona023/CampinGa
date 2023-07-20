@@ -1,0 +1,164 @@
+@charset "UTF-8";
+
+/*사업자 댓글*/
+#replyTable{
+	width:1000px;
+	height:100px;
+	margin: 20px auto;
+	background-color:#edf2fb;
+	font-size: 1.1rem;
+	line-height: 100px;
+}
+#replyTable th{
+	font-weight: 700;
+	color:black;
+}
+#replyTable td{
+	padding-left:30px;
+}
+
+/*캠핑장 관리*/
+.myCampInfo_title{
+	width:800px;
+	margin:0 auto;
+	text-align:center;
+	height:80px;
+	line-height:80px;		
+}
+.myCampInfo{
+	width: 800px;
+	height: 800px;
+	margin:0 auto 80px auto;	
+	text-align:center;	
+	border:1px solid #778da9;
+	border-radius:10px;
+}
+.myCampInfo_table{
+	width:700px;
+	height:650px;
+	margin:40px auto 20px auto;
+}
+.myCampInfo_table th{
+	font-size:1.3rem;
+	font-weight:700;
+	width:150px;
+}
+.myCampInfo_table td{
+	font-size:1.1rem;
+	padding-right:30px;
+}
+.myCampInfo_table th,
+.myCampInfo_table td{
+	vertical-align:middle;
+	text-align:left;
+	padding-left:30px;
+}
+.myCampInfo_img{
+	width:300px;
+	height:200px;
+	border-radius:10px;
+}
+
+/*객실 추가*/
+.roomInsert{
+	width:700px;
+	height:1400px;
+	margin:0 auto 60px auto;
+}
+.roomInsert_title,
+.roomInput{
+	width:600px;
+	margin: 0 auto 20px auto;
+}
+.roomInsert_title{
+	text-align:center;
+	font-size:2rem;
+	font-weight: bold;
+	height:70px;
+	line-height:70px;
+}
+.roomInput span{
+	font-size:1.2rem;
+	font-weight:700;
+	line-height:1.5;
+}
+.roomInput_div{
+	width:530px;
+	margin: 10px auto;
+	padding: 10px 30px;
+	border:1px solid lightgray;
+	border-radius:30px;
+	text-align:right;
+}
+.roomInput_div input[type="text"]{
+	background-color:transparent;
+	outline:none;
+	border:none;
+	font-size:1.1rem;
+	color:black;
+	text-align:right;
+	margin-right:10px;
+}
+.roomInput_div textarea{
+	word-break:keep-all;
+	border:none;
+	outline: none;
+	resize:none;
+	width:550px;
+	height:100px;
+	font-size:1.1rem;
+	color:black;
+	background-color:transparent;	
+}
+.roomInput_div textarea:focus{
+	background-color:transparent;
+}
+.filebox{
+	margin-top:10px;
+	padding-left:15px;
+}
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+.filebox .upload-name {
+    display: inline-block;
+    height: 30px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    width: 400px;
+    color: #999999;
+}
+.filebox label {
+    display: inline-block;
+    padding: 5px 15px;
+    color: #fff;
+    vertical-align: middle;
+    background-color: #999999;
+    cursor: pointer;
+    width:100px;
+    height: 20px;
+    margin-left: 10px;
+    text-align:center;
+}
+.roomInput_div select{
+	width:300px;
+	height:30px;
+	border:none;
+	margin-right:60px;
+	font-size: 1rem;
+}
+.roomInput_div input[type="checkbox"]{
+	margin-top:5px;
+	margin-bottom:10px;
+}
+
+
+
+
+

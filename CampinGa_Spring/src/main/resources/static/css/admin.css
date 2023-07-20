@@ -1,0 +1,332 @@
+@charset "UTF-8";
+.adminHeader{
+	width:1400px;
+	margin:0 auto;
+	background-color:#463f3a;
+	display:flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.adLogout{
+	width:100%;
+	height:50px;
+	text-align:right;
+}
+.adLogout input{
+	margin-right:40px;
+	border:none;
+	color:#ffc300;
+	font-size:1.2rem;
+	line-height:1;
+	width:100px;
+	height:30px;
+	border:1px solid #ffc300;
+	border-radius:3px;
+	background-color:transparent;
+}
+.adLogout input:hover{
+	color:#f94144;
+	cursor:pointer;
+}
+
+/* sub menu */
+.sub_menus{
+	width:1400px;
+	height:50px;
+	margin:0 auto;
+	background-color:black;
+	display:flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.sub_menu-one{
+	text-align:center;
+	width:110px;
+	height:35px;
+	line-height:1.7;
+	font-size:1.2rem;
+	font-weight:500;
+}
+.sub_menu-one a{
+	color:white;
+	opacity:0.6;
+}
+.sub_menu-one a:hover{
+	color:white;
+	opacity:0.9;
+}
+
+/*admin page*/
+.adminPage{
+	height:800px;	
+}
+.adSearch{
+	margin:20px auto;
+}
+.searchTd{
+	width:420px;
+	height:30px;
+	vertical-align:middle;
+}
+.searchTd input:first-child{
+	width:170px;
+	height:1.7rem;
+	border:none;
+	border-radius:20px;
+	outline:none;
+	background-color:#cce3de;
+	padding-left:20px;
+}
+.adpage_btn{
+	height:1.7rem;
+	border:1px solid #218380;
+	border-radius:5px;
+	color:#218380;
+	font-size:1rem;
+	line-height:1.5;
+	background-color:white;
+}
+.adpage_btn:hover{
+	cursor:pointer;
+	border:1px solid #218380;
+	color:white;
+	background-color:#218380;
+}
+.checkboxTd{
+	line-height:50px;
+}
+.checkboxTd input{
+	vertical-align:middle;
+}
+
+.rentList,
+#reviewList,
+#noticeList{
+  width: 1300px;
+  padding: 0px 20px;
+  outline: none;
+  color:#0077b6;
+  font-size: 18px;
+  text-align:center;
+  margin: 50px auto;
+  border-radius: 30px;
+  letter-spacing: 2px;
+}
+.rentList th,
+#reviewList th{
+	border-bottom:2px solid #023e8a;
+	font-size:1.2rem;
+    font-weight:600;
+    padding: 5px;
+    height:40px;
+    line-height:40px;
+}
+#reviewList tr:last-child th{
+	border:none;
+	text-align:right;
+	padding-right:20px;
+}
+.rentList td,
+#reviewList td,
+.memberInfoList2 td{
+	height:40px;
+	line-height:40px;
+	border-bottom:1px solid #cce3de;
+}
+.rentList td:nth-child(odd){
+	background-color:#e6f5e9;
+}
+#reviewList,
+#noticeList{
+  width: 1000px;
+}
+#noticeList th:first-child{
+	width: 100px;
+}
+#noticeList th:last-child{
+	width:150px;
+}
+
+/*공지사항 쓰기*/
+.noticeWrite{
+	width:1000px;
+	height:700px;
+	margin:50px;
+	color:black;
+	display:flex;
+	align-items:center;
+	justify-content: space-around;	
+}
+.noticeWrite span{
+	font-size:1.3rem;
+	font-weight:600;
+	line-height:1.5;
+}
+.writeSubject{ 
+	display:flex;
+	align-items:center;
+	justify-content: space-between;
+	width:1000px;
+	height:80px;
+}
+.writeSubject div:first-child{
+	background-color:#a4c3b2;
+	width:200px;
+	height:80px;
+	text-align:center;
+	line-height:80px;
+}
+.writeSubject div:last-child{
+	width:800px;
+	height:80px;
+	text-align:left;
+	background-color:#f6fff8;
+}
+.writeSubject input{
+	background-color:transparent;
+	outline: none;
+	border:none;
+	width: 700px;
+	height: 45px;
+	font-size:1.5rem;
+	line-height:1.5;
+	margin-left:30px;
+	margin-top:18px;
+}
+.writeSubject input::placeholder{
+	color:gray;	
+}
+.writeSubject input:focus::placeholder{
+	color:transparent;
+}
+.writeSubject input:focus{
+	outline: none;
+}
+.writeContent{
+	display:flex;
+	flex-direction: column;
+	align-items:center;
+	width:1000px;
+	height:500px;
+}
+.writeContent div:first-child{
+	background-color:#cce3de;
+	width:100%;
+	height:45px;
+	line-height:45px;
+	text-align:center;
+}
+.writeContent div:last-child{
+	width:100%;
+	height:455px;
+	text-align:center;
+	line-height:455px;
+	background-color:#f6fff8;
+}
+.writeContent textarea{
+	width:80%;
+	height:400px;
+	vertical-align:middle;
+	padding:25px 10px;
+	background-color:transparent;
+	font-size:1.2rem;
+}
+.writeContent textarea:focus::placeholder{
+	color:transparent;
+}
+.writeBtns{
+	display:flex;
+	align-items:center;
+	justify-content: flex-end;
+	width:1000px;
+	height:55px;
+	background-color:#cce3de;
+}
+.writeBtns input{
+	margin-right:25px;
+	width:45px;
+	height:35px;
+	background-color:white;
+	color:teal;
+	text-align:center;
+	border:1.5px solid teal;
+	border-radius:3px;
+}
+.writeBtns input:hover{
+	background-color:teal;
+	color:white;	
+}
+
+
+/* Banner 관리 */
+.bannerTable{
+	border : 1.5px solid #444746;
+    border-collapse : collapse;
+    margin:30px 0;
+    text-align:center;
+    color:#07593e;
+    font-size:16px;
+    font-weight:bold;
+}
+.bannerTable tr{
+	border : 1.5px solid #444746;
+	height:60px;
+}
+.bannerTable th{
+	border : 1.5px solid #444746;
+	width: 200px;
+	font-size:18px;
+	font-weight:bold;
+	color:#e1e4e5;
+	background-color:#4e796b;	
+	vertical-align:middle;
+}
+.bannerTable td{
+	border : 1.5px solid #444746;
+	background-color:#c2dce0;
+	vertical-align:middle;
+}
+.bannerTable td input[type="text"],
+.bannerTable td select{
+	margin-left:50px;
+	width:400px;
+	border-style: none;
+	outline-style: none;
+	background-color:transparent;
+	font-weight:bold;
+}
+.bannerTable td input[type="text"]{
+	font-size:20px;
+}
+.bannerTable td input[type="text"]:focus{
+	border-style: none;
+	background-color:transparent;
+	border-style: none;
+}
+.bannerTable td select{
+	font-size:16px;
+	text-align:center;
+}
+.banBtn{
+	border: 1.5px solid #00744e;
+	border-radius: 7px;
+	height: 35px;
+	text-align:center;
+	vertical-align:middle;
+	color:#00744e;
+	background-color:white;
+}
+.banBtn:hover{
+	cursor:pointer;
+	background-color:#00744e;
+	color:white;
+}
+#banTitle{
+	text-align:left;
+}
+
+
+
+
+
+

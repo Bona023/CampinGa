@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.campinga.dao.IAdminDao">
+
+	<resultMap id="adminMap" type="java.util.HashMap"></resultMap>
+		
+	<select id="getAdminList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getAdminList( 
+			#{adminId},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap} 
+			)
+		}
+	</select>
+	
+	<select id="AdminCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL AdminCount(
+				#{key},#{tableName},
+				#{cnt, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+	
+	<!-- 회원 -->
+	<select id="adminMemberList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL adminMemberList(
+				#{key}, #{startNum}, #{endNum},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+			)
+		}
+	</select>
+	
+	
+	<!-- 캠핑장 -->
+	<select id="adminCampingList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL adminCampingList(
+				#{key}, #{startNum},#{endNum},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+			)
+		}
+	</select>
+	
+	<update id="adminCampingJoinDormant" parameterType="java.util.HashMap">
+		update businessman set chkyn=#{chkyn} where bseq=#{bseq}
+	</update>
+	
+	<delete id="adminCampingDelete"  parameterType="_int">
+		delete from businessman where bseq=#{param1} 
+	</delete>
+	
+	
+	<!-- 예약관리 -->
+	<select id="adminRestList" statementType="CALLABLE" parameterType="java.util.HashMap">
+      {
+         CALL adminRestList(
+            #{key}, #{startNum},#{endNum},
+            #{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+         )
+      }
+   	</select>
+
+
+	<!-- 리뷰 -->
+	<select id="adminReviewList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL adminReviewList(
+				#{key},#{startNum},#{endNum},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+			)
+		}
+	</select>
+	
+	<delete id="deleteReview">
+		{
+			CALL deleteReview(#{rseq})
+		}
+	</delete>
+	
+	
+	<!-- 공지사항 -->
+	<select id="adminNoticeList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL adminNoticeList(
+				#{startNum},#{endNum},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+			)
+		}
+	</select>
+	
+	<select id="selectNoticeOne" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL selectNoticeOne(
+				#{nseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+			)
+		}
+	</select>
+		
+	<update id="adminNoticeUpdate" parameterType="com.campinga.dto.NoticeVO">
+		update notice set subject=#{subject}, content=#{content} where nseq=#{nseq}
+	</update>
+	
+	<insert id="adminNoticeWrite" parameterType="com.campinga.dto.NoticeVO">
+		insert into notice(nseq, aid, subject, content)
+		values(notice_seq.nextval, #{aid}, #{subject}, #{content})
+	</insert>
+	
+	<delete id="adminNoticeDelete" parameterType="_int">
+		delete notice where nseq=#{nseq}
+	</delete>
+	
+	
+	<!-- 메인 롤링 이미지 -->
+	<select id="adminBannerlist" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL adminBannerlist(
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+			)
+		}
+	</select>
+	
+	<insert id="adminBannerWrite" statementType="CALLABLE" parameterType="com.campinga.dto.BannerVO">
+		{
+			CALL adminBannerWrite(
+				#{name}, #{order_seq}, #{useyn}, #{image}
+			)
+		}
+	</insert>
+	
+	<insert id="bannerOrderUpdate" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL bannerOrderUpdate(
+				#{mbseq}, #{order_seq}
+			)
+		}
+	</insert>
+	
+	<select id="bannerSelectOne" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL bannerSelectOne(
+				#{mbseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=adminMap}
+			)
+		}
+	</select>
+		
+	<update id="adminBannerUpdate" statementType="CALLABLE" parameterType="com.campinga.dto.BannerVO">
+		{
+			CALL adminBannerUpdate(
+				#{name}, #{order_seq}, #{useyn}, #{image}, #{mbseq}
+			)
+		}
+	</update>
+	
+	<delete id="adminBannerDelete" parameterType="_int">
+		delete mainBanners where mbseq=#{param1}	
+	</delete>
+	
+	<update id="updateMemberDormant">
+		{
+			CALL updateMemberDormant( #{param1} )
+		}
+	</update>
+
+
+
+</mapper>

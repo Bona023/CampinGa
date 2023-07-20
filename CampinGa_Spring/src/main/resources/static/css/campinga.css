@@ -1,0 +1,1496 @@
+@charset "UTF-8";
+@import "reset.css";
+@import "admin.css";
+@import "business.css";
+@import "reserve.css";
+@import "idPw.css";
+.clear{
+    clear: both;
+}
+body {
+	background: white;
+	margin: 0;
+	padding: 0;	
+    font-family: '맑은 고딕', 'Malgun Gothic', verdana;    
+    color:#0077b6;
+}
+a{
+    text-decoration: none;
+    color:#0077b6;
+}
+a:hover{
+	color:#f2542d;
+}
+textarea{
+	border:none;
+	resize:none;
+	font-family: '맑은 고딕', 'Malgun Gothic', verdana; 
+}
+textarea:focus{
+	outline:none;
+}
+#wrap{
+	position:relative;
+	display:flex;
+	flex-direction:column;
+	align-items:center;	
+}
+button:hover{
+    cursor: pointer;
+}
+span:hover{
+	cursor:default;
+}
+p:hover{
+	cursor:default;
+}
+input{
+	font-family: '맑은 고딕', 'Malgun Gothic', verdana; 
+}
+select{
+	font-family: '맑은 고딕', 'Malgun Gothic', verdana; 
+}
+/*header 메인 메뉴 부분*/
+header{	
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: space-around;
+    width: 1400px;
+    height: 280px;
+    padding: 20px 0 35px 0;
+    margin :0 auto 40px auto;
+}
+#top_menu{
+    width: 1350px;
+    height: 35px;  
+}
+#top_menu ul{
+	width:33%;
+	height:100%;
+    float: right;
+    text-align: right;
+}
+#top_menu li{	
+	display:inline-block;
+	margin-left: 30px;
+	line-height:1.5;
+	font-size:1.2rem;
+	font-weight:bold;
+	color:white;	
+}
+#logo{
+    width: 1350px;
+    height:150px;
+	text-align: center;
+	line-height:130px;
+}
+#logo img{
+	width:300px;
+	height:70px;
+	vertical-align:middle;
+}
+#category_menu{
+	width: 1000px;
+	height:90px;
+	display:flex;
+	justify-content: space-between;
+}
+#category_menu div{
+	background-color:#cae9ff;
+	width:95px;
+	height:90px;
+	font-size:1.5rem;
+	font-weight:bold;
+	line-height:90px;
+	text-align:center;
+	border-radius:5px;
+	color:#004E98;
+	box-shadow:1px 1px 3px 2px lightgray;
+	transition: color 1s linear;
+}
+#category_menu div:hover{
+	background-color:#004E98;
+	color:white;
+	cursor:pointer;
+}
+#category_menu span:hover{
+	cursor:pointer;	
+}
+.icons{
+	position:relative;	
+}
+.iconImg1,
+.iconImg2{
+	width:95px;
+	height:90px;
+	display:flex;
+	position:absolute;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+}
+.iconImg1{
+	color:#004E98;
+}
+.iconImg2{
+	opacity:0;
+	color:white;
+}
+.iconImg1 img,
+.iconImg2 img{
+	width:60px;
+	height:55px;
+	display:block;
+}
+.iconImg1 span,
+.iconImg2 span{
+	display:block;
+	width:65px;
+	height:20px;
+	line-height:20px;
+	font-size:16px;
+	font-weight:700;
+}
+
+/*메인 이미지*/
+#mainSearch{
+	position:relative;	
+	width:1400px;
+	height:750px;
+	margin:0 auto;
+}
+#main_img{	
+	position:relative;
+	width:1400px;	
+	height:100%;
+	margin:0 auto;
+    text-align: left;
+    overflow:hidden;
+}
+#mainImg{
+	width:7000px;
+	height:100%; 
+    display:inline-block;        
+}
+
+/*메인 검색창*/
+#main_searchbar{	
+	position:absolute;	
+	left:410px;
+	top:220px;
+	width:620px;
+	height:280px; 
+	background-color:#1b4965c2;
+	z-index:10;	
+    border-radius: 30px;
+    color: white;
+    font-size:1.5rem;
+    text-align: center;
+	line-height:1.5;
+}
+#main_searchbar span{
+	margin-right: 30px;
+}
+#selects{	
+	padding-top:43px;
+	display:inline-block;
+	margin: 31px 62px;
+	width:500px;
+	height:170px; 
+	text-align: left;
+}
+#selectAddress{
+	height:50px;
+	display:inline-block;
+	margin-bottom:25px;
+}
+.selectAd{
+	background-color:white;
+	color:black;
+	width:130px;
+	height:35px; 
+	margin-right:10px;
+	border-radius:5px;
+}
+#searchName{
+	height:50px;
+	display:inline-block;
+	line-height:1.5;
+}
+#inputText{	
+	width:180px;
+	height:35px; 
+	border:0;
+	font-size:1rem;
+	border-radius:5px;
+	margin-right:10px;
+	margin-bottom:2px;
+	line-height:1.5;
+}
+#mainBtn{
+	display:inline-block;
+	border:none; 
+	background-color:#ffd500;
+	color:#00296b;
+	font-size:1.3rem;	
+	width:80px;
+	height:35px; 
+	border-radius:5px;
+	text-align: center;
+	line-height:1.5;
+	font-weight:500;
+}
+#mainBtn:hover{
+	background-color:#f2542d;
+	color:white;
+	cursor:pointer;
+}
+
+/*new 캠핑장*/
+.mainTitle{
+	width: 1400px;
+	height: 55px;
+	margin: 60px auto 20px auto;
+	line-height:55px;
+	font-size:1.7rem;
+	font-weight:bold;
+	text-align: center;
+}
+.newCampings{
+	width: 1400px;
+  	height: 400px;
+  	margin: 0 auto;
+}
+.newCampCard{
+	display:inline-block;
+	width: 285px;
+  	height: 100%;
+  	margin:0 30px;
+  	text-align: center;	
+}
+.newCampImgs{	
+	position:relative;
+	width: 260px;
+  	height: 255px;
+  	border-radius:50%;
+  	overflow: hidden;
+  	margin:5.6px;
+}
+.newCampImgs:hover{
+	cursor:pointer;
+}
+.campImg{
+	width:280px;
+	height:280px;
+}
+.imgCover{	
+	position:absolute;
+	top:100%;
+	width: 270px;
+  	height: 270px;
+  	background-color:rgba(0, 0, 0, 0.5); 
+  	text-align: center;
+  	color:white;
+  	font-size:1.3rem;
+	padding-top:85px;
+}
+.imgCover span{
+	line-height:1.5;
+}
+.newCampName{
+	width: 285px;
+	padding-top:5px;
+  	height: 30px;
+  	font-size:1.2rem;
+  	font-weight:600;
+	line-height:1.5;
+	background-color:#48cae4;
+	color:white;
+	margin-top:15px;
+	border-radius: 5px 5px 0 0;
+}
+
+.newCampInfo{	
+	width: 265px;
+  	height: 59px;
+  	padding: 10px;
+  	font-size:0.9rem;
+	line-height:1.5;
+	background-color:#caf0f8;
+	color:black;
+	text-align:left;
+	word-wrap : break-word; 
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	border-radius:0 0 5px 5px;
+}
+
+/*추천 캠핑장*/
+#recoBox{
+	width:1400px;
+	margin:30px auto;
+	height:500px;
+  	color:white;
+  	position:relative;
+}
+#recoBox::before{
+	content:"";
+	background-color:#45686b;
+	width:100%;
+	height:100%;
+    opacity: 0.6;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0px;
+    bottom: 0px;
+}
+.recoCampings{
+	position:relative;
+	width: 1400px;
+  	height: 400px;
+  	margin: 0 auto;
+  	text-align: center;
+  	z-index:5;
+}
+.recoTheme{	
+	position:relative;
+	width: 100%;
+  	height: 50px;
+}
+.recoTheme span{
+	font-size:1.2rem;
+	font-weight:550;
+	line-height:2;
+}
+.recoview{
+	display:flex;
+	justify-content: center;	
+	align-items: center;
+	width: 100%;
+  	height: 330px;
+  	padding: 10px 0;
+}
+.cardView{
+	position:relative;
+	width: 1040px;
+  	height: 330px;
+  	overflow: hidden;
+}
+.cards{
+	position:absolute;
+	left:0;
+	display:flex;	
+	align-items: flex-start;
+  	height: 330px;
+}
+.recoCampCard{
+	width: 250px;
+	padding:0 5px;
+  	height: 320px;
+  	border-radius:5px; 
+}
+.recoCampCard:hover{
+	cursor:pointer;
+}
+.cardHeader{
+	width: 250px;
+  	height: 15%;
+  	background-color:rgba(128, 128, 128, 0.8);  	
+  	text-align:left;
+  	overflow:hidden;
+}
+.cardHeader span{
+	color:white;
+	font-size:1.2rem;
+	font-weight:500;
+	line-height:2.5;
+	margin-left:20px;	
+}
+.recoImg{
+	position:relative;
+	width: 250px;
+  	height: 273px;
+  	overflow:hidden;
+  	text-align:center;	 	
+}
+.recoImg img{
+	display:block;
+	cursor:pointer;
+	width:105%;
+	height:105%;
+	position:absolute;
+	left:-2.5%;
+	top:-2.5%;
+}
+.recoImg img:hover{
+	display:block;
+	cursor:pointer;
+	width:120%;
+	height:120%;
+	position:absolute;
+	left:-10%;
+	top:-10%;
+}
+.btnA{
+	width: 10%;
+	height: 70px;
+}
+.btnA img{		
+	width: 40px;
+  	height: 65px;
+}
+.btnA img:hover{
+	cursor:pointer;		
+	width: 44px;
+  	height: 69px;		
+}
+
+/*footer*/
+footer{
+	position:relative;
+	background-color:#1d3557;	
+	width: 1340px;
+  	height: 180px;
+  	margin:0 auto;
+  	padding: 20px 30px 0 30px;
+}
+#adBtn{
+	width:115px;
+	height:32px;
+	border:1px solid gray;
+	border-radius:3px;
+	text-align:center;
+	line-height:1.7;
+	font-size:1.1rem;
+}
+.foot{
+	display:flex;
+	width: 1340px;
+  	align-items: center;
+  	justify-content: space-between;
+}
+#fLogo{
+  width: 20%;
+  height: 40px;
+}
+#fLogo img{
+  width: 172px;
+  height: 40px;
+  padding-top:25px;
+}
+#copy{
+	margin-left:10px;
+	text-align:left;
+	line-height:1.5;
+	font-size:1rem;	
+}
+.upBtn{
+	width:52px;
+	height:52px;
+	border-radius:50%;
+	background-color:#ffd60a;
+	text-align:center;
+}
+.upBtn a{
+	color:#1d3557;
+	font-size:1.4rem;
+	font-weight:bold;
+	line-height:2;
+}
+.upBtn a:hover{
+	color:#1d3557;
+}
+
+/* 캠핑장 검색 페이지 */
+#campSearch{
+	width:400px;
+	height:50px;
+	margin:0 auto;
+}
+#campSearch input{
+	width:250px;
+	height:34px;
+	outline: none;
+	border: 1px solid #48cae4;
+	border-radius: 17px;
+	padding-left:17px;
+	margin:	0 10px 0 85px;
+}
+#campSearch input::placeholder{
+	color:gray;
+	opacity: 0.5;
+}
+#campSearch input:focus::placeholder{
+	opacity: 0;
+}
+#searchBtn{
+    width: 20px;
+    height:20px;
+    vertical-align: middle;
+    opacity:0.6;
+}
+.bar{
+	width:100%;
+	height:2px;
+	margin-top: 15px;
+	margin-bottom:30px;
+	background-color:#1d3557;
+	opacity:0.5;
+}
+#searchResult{
+    width: 1400px;
+    margin:0 auto;
+    padding:0 25px;
+    display:flex;
+    flex-wrap : wrap;
+    justify-content: flex-start;
+    align-items: center;    
+}
+#campInfo{
+	background-color:#e5e5e5a6;
+	width:300px;
+	height:310px;
+    margin: 20px 15px;
+    padding: 10px;
+    border-radius:3px;
+    box-shadow: 2px 2px 6px gray;
+}
+#campInfo:hover{
+	cursor:pointer;
+	margin: 5px 15px 25px 15px;
+	
+}
+#campInfo_img{    
+    width: 300px;
+    height: 200px;
+    display: block;
+    /*box-shadow: 1px 1px 4px gray;*/
+}
+#campInfo_text{
+	margin-top:10px;
+}
+#campInfo_text span:hover{
+	cursor:pointer;
+}
+#campInfo_text span{
+	line-height:1.4;
+	font-size:0.8rem;
+	color: black;
+}
+#campInfo_text span:first-child{
+	color:#0077b6;
+	line-height:1.5;
+	font-size:1rem;
+}
+#campInfo_text span:first-child:hover{
+	color:crimson;
+}
+
+/* login css */
+#loginTable{
+	width: 40%;
+	margin:0 auto;	
+}
+.login {
+  width: 230px;
+  height: 600px;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin:0 auto;
+}
+
+h2 {
+  color:#0077b6;
+  font-size: 2em;
+  font-weight:bold;
+}
+
+.login_id {
+  margin-top: 20px;
+  width: 80%;
+}
+
+.login_id input {
+  width: 100%;
+  height: 50px;
+  border-radius: 30px;
+  margin-top: 10px;
+  padding: 0px 20px;
+  border: 1px solid lightgray;
+  outline: none;
+}
+
+.login_pwd {
+  margin-top: 20px;
+  width: 80%;
+}
+
+.login_pwd input {
+  width: 100%;
+  height: 50px;
+  border-radius: 30px;
+  margin-top: 10px;
+  padding: 0px 20px;
+  border: 1px solid lightgray;
+  outline: none;
+}
+
+
+.login_radio{
+  margin-top: 20px;
+  width: 80%;
+  padding:5px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.buttons{
+   margin-top: 30px;
+   text-align: center;
+   
+}
+
+.buttons input {
+  width: 80px;
+  height: 40px;
+  border: 0;
+  outline: none;
+  border-radius:5px;
+  background:  linear-gradient(to bottom, rgba(148,213,239,1) 9%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 100%,rgba(44,175,227,1) 100%,rgba(73,192,240,1) 100%);
+  color: white;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+  display :inline-block;
+  margin-right: 10px;
+  font-weight:bold;
+}
+
+.button{
+   border-color:#043056;
+}
+
+.button:hover {
+    cursor: pointer;
+    color: #0077b6;
+    background-color:#e2edf6;
+}
+
+/* join contract */
+.contract{
+	width: 1000px;
+	height: 600px;
+	margin:0 auto;
+	text-align:center;
+}
+.contract form{
+	width: 800px;
+	height: 500px;
+	margin: 30px auto;
+}
+.conView{
+	width:100%;
+	height:330px;
+	margin:25px auto;
+	background-color:#abccd0;
+	padding: 35px 0;
+}
+
+/* join css*/
+.joinTable{
+  width: 600px;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin:60px auto 90px auto;
+}
+
+h1 {
+  color:#0077b6;
+  font-size: 2em;
+  font-weight:bold;
+}
+
+.inputDiv{
+  margin-top: 20px;
+  width: 80%;
+}
+
+.inputDiv input {
+  width: 90%;
+  height: 50px;
+  border-radius: 30px;
+  margin-top: 10px;
+  padding: 0px 20px;
+  border: 1px solid lightgray;
+  outline: none;
+}
+
+.buttons{
+   margin-top: 10px;
+   text-align: center;
+}
+
+.buttons input {
+  width: 80px;
+  height: 40px;
+  border: 0;
+  outline: none;
+  border-radius:5px;
+  background:  linear-gradient(to bottom, rgba(148,213,239,1) 9%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 100%,rgba(44,175,227,1) 100%,rgba(73,192,240,1) 100%);
+  color: white;
+  font-size: 1em;
+  letter-spacing: 2px;
+  display :inline-block;
+  margin-right: 10px;
+  font-weight:bold;
+}
+
+.button{
+ border-color:#043056;
+}
+
+.button:hover {
+    cursor: pointer;
+    color: #0077b6;
+    background-color:#e2edf6;
+}
+
+.inputDiv input.btn{
+   width:100px;
+   height:30px;
+   background:  linear-gradient(to bottom, rgba(148,213,239,1) 9%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 100%,rgba(44,175,227,1) 100%,rgba(73,192,240,1) 100%);
+   color: white;
+}
+.btn{
+   border-color:#043056;
+}
+
+.btn:hover {
+    cursor: pointer;
+    color: #0077b6;
+    background-color:#e2edf6;
+}
+
+/*mypage css*/
+#mypage{
+  width: 1000px;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top:40px;
+  flex-direction: column;
+  margin:0 auto;
+}
+
+.memberInfoList1, .memberInfoList2{
+  width: 1100px;
+  padding: 0px 20px;
+  outline: none;
+  color:#0077b6;
+  font-size: 20px;
+  text-align:center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 30px;
+  letter-spacing: 2px;
+}
+
+.memberInfoList2 tr:first-child{
+   border-bottom:2px solid #023e8a;
+   font-size:1.2rem;
+   font-weight:600;
+   padding: 5px;
+}
+#myrest th:first-child{
+	width:250px;
+}
+#myrest th:nth-child(3){
+	width:50px;
+}
+#myfav th:firtst-child{
+	width:50px;
+}
+#myfav th:last-child{
+	width:150px;
+}
+.memberInfoList1 th{
+   border-right:1px dotted #023e8a;
+   font-size:1.2rem;
+   font-weight:600;
+   padding: 5px;
+}
+
+.memberInfoList1 tr, .memberInfoList2 tr{
+   margin-top: 50px;
+   line-height: 3rem;
+   text-align:center;
+}
+
+.memberInfoList1 tr td, .memberInfoList2 tr td{
+   margin-top: 30px;
+   line-height: 3rem;
+}
+
+#mypagebtn input{
+  height: 30px;
+  border: 0;
+  outline: none;
+  border-radius:5px;
+  background:  linear-gradient(to bottom, rgba(148,213,239,1) 9%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 100%,rgba(44,175,227,1) 100%,rgba(73,192,240,1) 100%);
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  display :inline-block;
+  margin-right: 10px;
+  font-weight:bold;
+  text-align: center;
+}
+
+#mypagebtn input:hover{
+   cursor: pointer;
+    color: #0077b6;
+    background-color:#e2edf6;
+}
+
+.memberInfoList2 td input{
+  height: 30px;
+  border: 0;
+  outline: none;
+  border-radius:5px;
+  background:  linear-gradient(to bottom, rgba(148,213,239,1) 9%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 100%,rgba(44,175,227,1) 100%,rgba(73,192,240,1) 100%);
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  display :inline-block;
+  margin-right: 10px;
+  font-weight:bold;
+  text-align: center;
+}
+
+.memberInfoList2 td input:hover{
+    cursor: pointer;
+    color: #0077b6;
+    background-color:#e2edf6;
+}
+
+/*campdetail css*/
+.detail_title{
+	width:250px;
+	height:50px;
+	margin:50px auto;
+	text-align:center;	
+}
+.detail_title span{
+	font-size:2rem;
+	font-weight:bold;
+	color:#3a0ca3;
+	line-height:1.5;
+}
+.detail_text{
+	width:600px;
+	height:50px;
+	margin:20px auto;
+	padding:25px;
+	font-size:1.2;
+	color:black;
+	font-weight:700;
+	text-align:center;
+	vertical-align:middle;
+}
+#campingdetail{
+	width:1400px;	
+	height:550px;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	flex-direction: column;
+  	margin:0 auto;
+}
+#campMain{
+	width:75%;
+	height:500px;
+	margin:25px auto;
+	display: flex;
+  	justify-content:space-around;
+  	align-items: center;
+}
+#campMain_img{
+   border-radius: 10px;
+   width:600px;
+   height:400px;
+   overflow:hidden;
+}
+#campMain_img img{
+	width:100%;
+    height:100%;
+}
+#campMain_info{
+    width:600px;
+    height:400px;
+}
+.favDel,
+.favAdd{	
+   display: block;
+    margin: 40px auto 0px;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0 10px 20px -8px rgb(240, 75, 113);
+    padding: 10px 17px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;	
+}
+.favDel{
+	 color: #ed2553;
+     background:white;
+     border:1px solid #ed2553;	
+}
+.favAdd{
+     background: #ed2553;
+     color:white;	
+}
+
+.favAdd:hover{
+    transform: translateY(-3px);
+    background: #ff0080;
+}   
+.favDel:hover{
+    transform: translateY(-3px);
+    background: #fff0f3;
+}   
+
+#campMain_info-title{
+	width:550px;
+    height:50px;
+    margin:10px auto 20px auto;
+    border-bottom: 3px solid #3a0ca3;
+    text-align:center;
+}
+#campMain_info-title h2{
+	line-height:1.7;
+}
+#campMain_info label{
+   line-height: 1.5rem;
+   margin-left:20px;
+   font-weight:750;
+}
+#campMain_info-btns{
+	width:540px;
+    height:50px;
+    padding:10px 30px;
+    text-align:right;
+}
+#campMain_info-btns span{
+	color:red;
+	font-size:2rem;
+}
+#campMain_info-btns span:hover{
+	cursor:pointer;
+}
+
+#campMain_info .submit, .view td input{
+	margin:5px 5px 5px 5px;
+	border: 0;
+	border-radius:5px;
+	background:linear-gradient(to bottom, rgba(148,213,239,1) 9%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 100%,rgba(44,175,227,1) 100%,rgba(73,192,240,1) 100%);
+	color: white;
+	font-size: 1rem;
+	letter-spacing: 2px;
+	margin-right: 10px;
+	font-weight:bold;
+}
+
+#campMain_info .submit:hover, .view td input:hover{
+    cursor: pointer;
+    color: #0077b6;
+    background-color:#e2edf6;
+}
+
+/*캠핑장 설명, 지도*/
+#campDetail{
+	width:1400px;
+	text-align:center;
+	margin:20px auto 0 auto;
+	padding:0 30px;
+	border-top:2px solid #a8dadc;
+}
+#campDetail_imgs{
+	width:800px;
+	height:400px;
+	margin:40px auto;
+	position:relative;
+	overflow:hidden;
+}
+#campImgs{
+	text-align:left;
+	height:400px;
+	position:absolute;
+	left:0;
+}
+#leftBtn,
+#RightBtn{
+	width:35px;
+	height:400px;
+	position:absolute;	
+	z-index:5;	
+}
+#leftBtn{
+	left:0;
+}
+#RightBtn{
+	right:0;
+}	
+#leftBtn img:hover,
+#RightBtn img:hover{
+	cursor:pointer;	
+}
+#leftBtn img,
+#RightBtn img{
+	margin-top:200px;
+	width:30px;
+	height:50px;
+	opacity:0.8;
+}
+#leftBtn img{margin-left:5px;}
+#RightBtn img{margin-right:5px;}
+
+
+
+/* 지도 */
+#map{
+	width:800px;
+	height:450px;
+	margin: 10px auto 45px auto;
+}
+
+
+
+/*객실정보*/
+#roomBox_main{
+	width:1400px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin:0 auto 80px auto;
+    border-top:2px solid #a8dadc;
+}
+#roomBox{
+	border-radius: 5px;
+	width:1000px;
+	height:300px;
+	border: 1px solid lightgray;
+    text-align:center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:10px auto;
+}
+.room_img{
+	width:400px;
+	height:300px;
+	text-align:center;
+	line-height:300px;
+}
+#roomBox img{
+	vertical-align:middle;
+	border-radius: 100%;
+	width:250px;
+	height:250px;
+}
+.room_info{
+	width:600px;
+	height:280px;
+	display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px 0;	
+}
+.room_info-title{
+	height:45px;
+	line-height:45px;
+	width:570px;
+	font-size:1.5rem;
+	font-weight:700;
+	text-align:left;
+	color:black;
+}
+.room_info-text{
+	height:35px;
+	line-height:35px;
+	width:570px;
+	font-size:1.2rem;
+	font-weight:550;
+	text-align:right;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.roomInfo-bar{
+	width:570px;
+	height:1px;
+	background-color:lightgray;
+}
+.resbtn{
+	width:570px;
+	height:45px;
+	background-color:#00b4d8;	
+	border-radius:5px;
+	text-align:center;
+	line-height:45px;
+	color:white;
+	font-size:1.2rem;	
+}
+.resbtn:hover{
+	cursor:pointer;
+}
+.bmresbtns{
+	width:570px;
+	height: 45px;
+	display:flex;
+	justify-content:space-evenly;
+}
+.bmresbtn{
+	width:220px;
+	height:45px;
+	background-color:#00b4d8;	
+	border-radius:5px;
+	text-align:center;
+	line-height:45px;
+	color:white;
+	font-size:1.2rem;
+	float:left;
+}
+
+.bmresbtn:hover{
+	cursor:pointer;
+}
+
+/* Q&A css */
+.listBox{
+	width:1450px;
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:4% auto;
+}
+.view{
+	width:78%;
+   	margin:3% auto;
+   	text-align:center;
+   	line-height:1.5;
+}
+.view th{
+	width:8%;
+	border-bottom:2px solid #023e8a;
+	font-size:1.2rem;
+	font-weight:600;
+	padding: 5px;
+	line-height:42px;
+}
+.view th:nth-child(3){
+	width:10%
+}
+.view th:nth-child(4){
+	width:45%
+}
+.view th:nth-child(5){
+	width:14%
+}
+.view th:last-child{
+	width:15%
+}
+.view td{
+	height:42px;
+	vertical-align: middle;
+}
+.listOne td:nth-child(4){
+	text-align:left;
+}
+#updateTd{
+	background-color:#e2eafc;
+	height:80px;
+	text-align:left;
+}
+#updateTd textarea{
+	background-color: transparent;
+	resize: none;
+	width:650px;
+	height:60px;
+	padding:20px 25px 0 25px;
+	text-align:left;
+	vertical-align:base-line;
+	font-size:1rem;
+}
+#replyTr{
+	border-top:1px solid #e2eafc;
+	border-bottom:1px solid #e2eafc;
+}
+#replyTr td{
+	padding-left:25px;
+	font-size:1.2rem;
+	line-height:40px;
+}
+#replyTr td:first-child{
+	font-weight:700;	
+}
+.listBox form{
+	width:100%;
+	height: 100px;
+}
+.writeBox{
+	width:60%;
+	height:120px;
+	margin: 0 auto;
+	padding:10px;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color:#e2eafc;
+	border-radius:5px;
+}
+.writeBox textarea{
+	display:block;
+	width:90%;
+	height:80px;
+	font-size:1.2rem;
+	background-color:transparent;
+}
+.writeBox div{
+	width:100%;
+	height:20px;
+	text-align:right;
+}
+.paging{
+	width:700px;
+	height: 35px;
+	margin:10px auto;
+	text-align:center;
+	line-height:35px;
+	font-size:1.2rem;
+	font-weight:bold;
+}
+.bar2{
+	width:1400px;
+	height:2px;
+	background-color:#a8dadc;
+	margin:0 auto;
+}
+
+
+/* review css */
+.btns input{
+     border: 0;
+     border-radius:5px;
+     background:#3a0ca3;
+     color: white;
+     font-size: 1rem;
+     letter-spacing: 2px;
+     margin-right: 10px;
+     font-weight:bold;
+}   
+
+.btns input:hover{
+    cursor: pointer;
+    background:#2a1af2;
+}
+
+/*회원가입약관*/
+.select {
+    padding: 15px 10px;
+
+}
+.select input[type=radio]{
+    display: none;
+}
+
+.select input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 24px;
+    width: 90px;
+    border: 1px solid #333;
+    line-height: 24px;
+    text-align: center;
+    font-weight:bold;
+    font-size:13px;
+}
+.select input[type=radio]+label{
+    background-color: #fff;
+    color: #333;
+}
+.select input[type=radio]:checked+label{
+    background-color: #333;
+    color: #fff;
+}
+
+/* 공지사항 css */
+#noticeview{
+    width:1200px;
+    height:750px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin:40px auto 60px auto;
+	text-align:center;
+}
+.noticeTitle{
+	width:100%;
+	height:100px;
+	line-height:50px;
+}
+.noticeOne{
+	color:black;
+}
+.noticeOne_title{
+	width:100%;
+	height:45px;
+	font-size:1.3rem;
+	font-weight: 700;
+	line-height:45px;
+    display: flex;	
+}
+.noticeOne_title div:first-child{
+	width:200px;
+	background-color:#8a817c;
+	color:white;
+}
+.noticeOne_title div:last-child{
+	width:800px;
+	background-color:#bcb8b1;
+}
+.noticeOne_content{
+	background-color:#f4f3ee;
+	width:840px;
+	height:400px;
+	text-align:left;
+	padding: 50px 80px;
+	font-size:1.2rem;
+	line-height:1.5;
+}
+
+
+/* 예약페이지 css */
+#reserveInfo{
+    width:1300px;
+    height:600px;   
+    text-align:center;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin:5% auto;
+    padding:10px;
+}
+
+#reserveInfo1{
+    width:550px;
+    height:400px;
+    align-items: center;
+    height:500px;
+    line-height: 30px;
+    text-align:center;
+    padding:2%;
+}
+
+#reserveInfo1 table{
+    width:100%;
+   height:300px;
+   font-size:25px;
+}
+#reserveInfo2{
+   width:500px;
+   height:600px;
+   line-height: 30px;
+   background-color:#e6eaed;
+   padding:2%;
+}
+#reserveInfo2 table{
+   width:100%;
+   height:500px;
+   font-size:20px;
+}
+#res_table_title{
+	width:200px;
+	height:45px;
+	font-size:32px;
+	text-align:center;
+	border-bottom:2px solid #b1c0cd;
+	margin: auto;
+	color: black;
+}
+
+#reserveInfo1 table th, #reserveInfo2 table th{
+    font-weight:bold;
+    text-align: left;
+}
+
+#reserveInfo1 table td{
+   text-align: left;
+}
+
+.chk input {
+   width: 50%;
+  height: 30px;
+  border-radius: 30px;
+  margin-top: 10px;
+  padding: 0px 20px;
+  border: 1px solid lightgray;
+  outline: none;
+}
+
+.chk2 input {
+  width: 10%;
+  height: 30px;
+  border-radius: 30px;
+  margin-top: 10px;
+  padding: 0px 20px;
+  border: 1px solid lightgray;
+  outline: none;
+}
+
+#reservebtn input{
+    background: #00b4d8;
+    outline: none;
+  border-radius:5px;
+   width: 100%;
+  height: 40px;
+  border: 0;
+   color: white;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+  display :inline-block;
+  margin-right: 10px;
+  font-weight:bold;
+}
+
+#reservebtn input:hover{
+    cursor: pointer;
+    background: #01939A;
+}

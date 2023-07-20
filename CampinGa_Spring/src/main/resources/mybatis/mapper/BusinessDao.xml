@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.campinga.dao.IBusinessDao">
+
+	<resultMap id="businessMap" type="java.util.HashMap"></resultMap>
+	
+	<select id="getBusinessCam" statementType="CALLABLE"
+		parameterType="java.util.HashMap">
+		{
+			CALL getBusinessCam(
+			#{bid},
+			#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=businessMap}
+			)
+		}
+	</select>
+	
+	
+	<update id="updateBusiness" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ 
+			CALL updateBusiness( 
+				#{BID}, #{NAME}, #{PHONE},#{EMAIL}
+			) 
+		}
+	</update>
+	
+	
+	<update id="dormantBusiness" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ 
+			CALL dormantBusiness( 
+				#{bid}
+			) 
+		}
+	</update>
+	
+	<delete id="deleteBusiness" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ CALL deleteBusiness( #{bid} ) }
+	</delete>
+	
+	
+	<select id="BusinessGetAllCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  
+			  CALL BusinessGetAllCount( 
+				  #{bseq}, #{tableName},
+				  #{cnt , mode=OUT, jdbcType=INTEGER }
+			)	  
+		}
+	</select>
+	
+	<select id="getBusinessRestList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  
+			CALL getBusinessRestList( 
+			  #{bseq},
+			  #{startNum}, #{endNum},
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=businessMap}
+			) 
+		}
+	</select>
+	
+	<!-- 사업자 QnA -->
+	<select id="getBusinessQnaList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  
+			CALL getBusinessQnaList( 
+				#{bseq}, #{startNum}, #{endNum},  
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=businessMap}
+			) 
+		}
+	</select>
+	
+	<select id="getQnaOne" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getQnaOne(
+				#{qseq},
+				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=businessMap}
+			)
+		}
+	</select>
+	
+	<update id="SaveQnaRep" parameterType="com.campinga.dto.QnaVO">
+		update camp_qna set reply=#{reply}, repyn='y' where bseq=#{bseq}
+	</update>
+	
+	<!-- 캠핑룸 리스트 -->
+   	<select id="campingRoomList" statementType="CALLABLE" parameterType="java.util.HashMap">
+      {  
+         CALL campingRoomList( 
+            #{bseq}, #{startNum}, #{endNum},
+            #{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=businessMap}
+         ) 
+      }
+   	</select>
+   	
+   	<!-- 캠핑룸 한개 -->
+   	<select id="campingRoomOne" statementType="CALLABLE" parameterType="java.util.HashMap">
+      {  
+         CALL campingRoomOne( 
+            #{cseq},
+            #{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=businessMap}
+         ) 
+      }
+   	</select>
+   	
+   	<!-- 캠핑룸 삽입 -->
+   	<insert id="insertCampingRoom" statementType="CALLABLE">
+      {
+         CALL insertCampingRoom(
+            #{bseq}, #{cname}, #{c_class}, #{c_content}, #{price}, #{min_people}, #{max_people}, #{c_image}
+         )
+      }
+   </insert>
+   	
+   	<!-- 캠핑룸 삭제 -->
+   	<delete id="deleteCampingRoom">
+      {
+         CALL deleteCampingRoom(#{cseq})
+      }
+   	</delete>
+   	
+   	<update id="updateCampingRoom" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{ 
+			CALL updateCampingRoom( 
+				#{c_class}, #{price}, #{min_people}, #{max_people}, 
+				#{c_image}, #{cseq}
+			) 
+		}
+	</update>
+	
+	 <!-- 사업자 가입 -->
+   <insert id="insertBusinessCam" statementType="CALLABLE" parameterType="com.campinga.dto.BusinessVO">
+      {
+         CALL insertBusinessCam(
+         #{bid}, #{pwd}, #{name}, #{cname}, #{phone}, #{email}, 
+         #{caddress1}, #{caddress2}, #{caddress3}
+         )
+      }
+   </insert>
+
+	 <!-- 캠핑장 조회 수정-->
+   <update id="BsCampingInfoUpdate" statementType="CALLABLE" parameterType="java.util.HashMap">
+         { 
+         CALL BsCampingInfoUpdate( 
+            #{bseq}, #{cname}, #{image}, #{content}, #{category}, 
+            #{caddress1}, #{caddress2}, #{caddress3}, #{facilities}, #{campimages}
+         ) 
+         }
+   </update>
+
+	<!-- id찾기 -->
+	<select id="returnBid" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL returnBid(
+				#{name}, #{phone},
+				#{id, mode=OUT, jdbcType=VARCHAR}
+			)
+		}
+	</select>
+	
+	<select id="confirmBid" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL confirmBid(
+				#{id}, #{email},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=memberMap}
+			)
+		}
+	</select>
+	
+	<update id="updateNewPw">
+		update businessman set pwd=#{param2} where bid=#{param1}
+	</update>
+
+
+</mapper>
